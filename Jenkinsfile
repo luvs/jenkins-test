@@ -1,6 +1,6 @@
 pipeline {
   agent {
-      label 'testing'
+    label 'testing'
   }
 
   environment {
@@ -10,13 +10,24 @@ pipeline {
   }
 
   stages {
-      stage('Test') {
-          steps {
-              sh 'ls -la'
-              script {
-                dockerImage = docker.build imagename
-              }
+    stage('Build image') {
+      steps {
+        sh 'ls -la'
+          script {
+            dockerImage = docker.build imagename
           }
       }
+    }
+
+    stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry('harbor.fundraiseup.com', registryCredential) {
+            dockerImage.push("$BUILD_NUMBER")
+            dockerImage.push('latest')
+          }
+        }
+      }
+    }
   }
 }
