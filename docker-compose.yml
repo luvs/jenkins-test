@@ -1,0 +1,7 @@
+version: "2"
+services:
+  mongodb:
+    image: mongo:4.2
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0" ]
+  clickhouse:
+    image: yandex/clickhouse-server

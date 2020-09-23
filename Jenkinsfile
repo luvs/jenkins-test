@@ -29,5 +29,9 @@ pipeline {
         }
       }
     }
+
+    stage('Test') {
+      sh 'docker-compose up -d'
+    }
   }
 }
