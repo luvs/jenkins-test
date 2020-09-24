@@ -1,3 +1,5 @@
 FROM alpine
 RUN mkdir /data
-COPY 1 /data/1
+COPY run.sh /data/run.sh
+
+CMD /data/run.sh

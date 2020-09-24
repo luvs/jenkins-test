@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    label 'testing'
+    label 'docker-agent'
   }
 
   environment {
