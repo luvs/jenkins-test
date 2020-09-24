@@ -5,7 +5,7 @@ pipeline {
 
   environment {
     imagename = "harbor.fundraiseup.com/fundraiseup/test"
-    registryCredential = 'harbor-jenkins'
+    registryCredential = 'harbor'
     dockerImage = ''
   }
 
