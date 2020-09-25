@@ -1,10 +1,6 @@
 pipeline {
-//  agent {
-//    label 'docker-agent'
-//  }
-
   agent {
-    docker 'harbor.fundraiseup.com/fundraiseup/jenkins-agent:latest'
+    label 'docker-agent'
   }
 
   environment {
